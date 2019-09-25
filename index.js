@@ -15,7 +15,7 @@ class PuppeteerPlugin {
 				const url = response.request.href;
 
 				const page = await browser.newPage();
-				await page.goto(url);
+				await page.goto(url, {waitUntil: 'networkidle2'});
 				const content = await page.content();
 				await page.close();
 				return content;
