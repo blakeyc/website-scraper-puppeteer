@@ -5,7 +5,7 @@ class PuppeteerPlugin {
 		let browser;
 
 		registerAction('beforeStart', async () => {
-			browser = await puppeteer.launch();
+			browser = await puppeteer.launch({args: ['--no-sandbox']});
 		});
 
 		registerAction('afterResponse', async ({response}) => {
